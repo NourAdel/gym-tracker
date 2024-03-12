@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import Header from "../components/shared/Header/header";
+import Header from "@/components/shared/Header";
 import StyledComponentsRegistry from "@/lib/StyledComponentsRegistry";
+import Footer from "@/components/shared/Footer";
+import "./globals.css";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,6 +23,7 @@ export default function RootLayout({
         <StyledComponentsRegistry>
           <Header />
           {children}
+          <Footer />
         </StyledComponentsRegistry>
       </body>
     </html>

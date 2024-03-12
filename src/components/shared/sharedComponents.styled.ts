@@ -7,3 +7,12 @@ export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
 `;
+
+export const FooterComponent = styled.div`
+  background-color: #0085bf;
+  height: 150px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+`;
