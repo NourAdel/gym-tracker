@@ -1,12 +1,14 @@
+'use client'
 import React from "react";
 
-const ExercisePage: React.FC = () => {
+export default async function ExercisePage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   return (
     <div>
-      <h1>Next.js Page</h1>
-      <p>This is a basic Next.js page.</p>
+      <h1>{params.slug}</h1>
     </div>
   );
-};
-
-export default ExercisePage;
+}
