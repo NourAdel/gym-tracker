@@ -1,32 +1,52 @@
 "use client";
-import { Exercise, ExerciseListProps } from "@/_types";
-import Image from "next/image";
-import Link from "next/link";
+
 import React, { FC } from "react";
-import { PageContainer } from "./Exercise.styled";
+import Image from "next/image";
+import { Exercise, ExerciseListProps } from "@/_types";
+import {
+  ExerciseContainer,
+  ExerciseDataContainer,
+  ExerciseImage,
+  ExerciseListContainer,
+  ExerciseMuscle,
+  ExerciseTitle,
+  PageContainer,
+  PageTitle,
+} from "./ExerciseList.styled";
+import Arrow from "../../../assets/arrow-right.svg";
 
 const ExerciseList: FC<ExerciseListProps> = (props) => {
   const { list } = props;
+
   const renderList = () => {
     return list.map((item: Exercise) => {
       return (
-        <Link href={`/exercises/${item.id}`} key={item.id}>
-          <Image
+        <ExerciseContainer href={`/exercises/${item.id}`} key={item.id}>
+          <ExerciseImage
             src={item.image}
             alt={`${item.name} image`}
             width={60}
             height={60}
           />
-          <p>{item.name}</p>
-          <p>{item.muscle}</p>
-        </Link>
+          <ExerciseDataContainer>
+            <ExerciseTitle>{item.name}</ExerciseTitle>
+            <ExerciseMuscle>{item.muscle}</ExerciseMuscle>
+          </ExerciseDataContainer>
+          <Image
+            src={Arrow}
+            alt={`${item.name} image`}
+            width={20}
+            height={40}
+          />
+        </ExerciseContainer>
       );
     });
   };
+
   return (
     <PageContainer>
-      <p>Top Exercises</p>
-      {renderList()}
+      <PageTitle>Top Exercises</PageTitle>
+      <ExerciseListContainer>{renderList()}</ExerciseListContainer>
     </PageContainer>
   );
 };
