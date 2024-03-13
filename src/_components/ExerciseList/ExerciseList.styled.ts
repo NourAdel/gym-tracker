@@ -7,7 +7,7 @@ export const PageContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 32px;
+  padding-top: 32px;
 `;
 
 export const PageTitle = styled.p`
@@ -21,6 +21,10 @@ export const ExerciseListContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 32px 50px;
   margin: 0 auto;
+
+  @media (max-width: 750px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const ExerciseContainer = styled(Link)`
@@ -29,13 +33,10 @@ export const ExerciseContainer = styled(Link)`
   flex-direction: row;
   justify-content: space-between;
   text-decoration: none;
-  padding: 10px;
   cursor: pointer;
 
-  border-radius: 10px;
-
   &:hover {
-    background-color: #e4fbf5;
+    transform: scale(1.01);
   }
 `;
 
