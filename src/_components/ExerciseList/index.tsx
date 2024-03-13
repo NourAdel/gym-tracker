@@ -21,7 +21,13 @@ const ExerciseList: FC<ExerciseListProps> = (props) => {
   const renderList = () => {
     return list.map((item: Exercise) => {
       return (
-        <ExerciseContainer href={`/exercises/${item.id}`} key={item.id}>
+        <ExerciseContainer
+          href={{
+            pathname: `/exercises/${item.id}`,
+            query: { name: item.name, image: item.image },
+          }}
+          key={item.id}
+        >
           <ExerciseImage
             src={item.image}
             alt={`${item.name} image`}

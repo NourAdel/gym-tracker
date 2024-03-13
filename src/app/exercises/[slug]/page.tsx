@@ -1,14 +1,11 @@
-'use client'
+import ExerciseDetails from "@/_components/ExerciseDetails";
+import { ExercisePageProps } from "@/_types";
 import React from "react";
 
 export default async function ExercisePage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+  searchParams,
+}: ExercisePageProps) {
   return (
-    <div>
-      <h1>{params.slug}</h1>
-    </div>
+    <ExerciseDetails image={searchParams.image} name={searchParams.name} />
   );
 }

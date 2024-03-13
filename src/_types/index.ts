@@ -8,3 +8,18 @@ export interface Exercise {
 export interface ExerciseListProps {
   list: Exercise[];
 }
+
+export interface ExercisePageProps {
+  params: { slug: string };
+  searchParams: {
+    name: string;
+    image: string;
+  };
+}
+
+export interface Set {
+  date: Date;
+  reps: number;
+  weight: number;
+  rm: number;
+}
