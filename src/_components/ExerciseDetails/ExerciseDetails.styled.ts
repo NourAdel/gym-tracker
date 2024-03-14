@@ -8,7 +8,7 @@ export const PageContainer = styled.div`
   justify-content: start;
   padding-top: 32px;
   padding-inline: 24px;
-  width: 50%;
+  width: 55%;
   margin: 0 auto;
   transition: all 0.5s linear;
   @media (max-width: 900px) {

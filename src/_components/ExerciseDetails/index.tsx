@@ -12,17 +12,17 @@ import {
   InputLabelContainer,
   AddSetButton,
 } from "./ExerciseDetails.styled";
-import { Set } from "@/_types";
 import { SetList } from "../SetList";
+import { useSetsContext } from "@/_store/useSetsContext";
 
-const ExerciseDetails: React.FC<{ name: string; image: string }> = ({
-  name,
-  image,
-}) => {
+const ExerciseDetails: React.FC<{
+  name: string;
+  image: string;
+}> = ({ name, image }) => {
   const [reps, setReps] = useState<number>(0);
   const [weight, setWeight] = useState<number>(0);
-  const [sets, setSets] = useState<Set[]>([]);
-
+  const { sets, addSet, clearSets } = useSetsContext();
+  const today = new Date();
   return (
     <PageContainer>
       <PageTitle>{name}</PageTitle>
@@ -56,17 +56,29 @@ const ExerciseDetails: React.FC<{ name: string; image: string }> = ({
         </InputLabelContainer>
         <AddSetButton
           onClick={() => {
-            setSets([...sets, { date: new Date(), reps, weight, rm: 0 }]);
+            addSet({
+              date: today,
+              reps,
+              weight,
+              rm: parseFloat((weight * (36 / (37 - reps))).toFixed(1)),
+            });
           }}
         >
           +
+        </AddSetButton>
+        <AddSetButton
+          onClick={() => {
+            clearSets();
+          }}
+        >
+          clear
         </AddSetButton>
       </InputsContainer>
 
       {sets.length > 0 && (
         <React.Fragment>
           <SectionTitle>Performance:</SectionTitle>
-          <SetList sets={sets} />
+          <SetList />
         </React.Fragment>
       )}
     </PageContainer>

@@ -1,15 +1,42 @@
-import { Set } from "@/_types";
+import { DateSet, Set } from "@/_types";
+import {
+  Label,
+  SetContainer,
+  SetDate,
+  SetsContainer,
+  Description,
+  DateSetsContainer,
+} from "./SetList.styled.";
+import { useSetsContext } from "@/_store/useSetsContext";
 
-export const SetList: React.FC<{ sets: Set[] }> = ({ sets }) => {
+export const SetList: React.FC = () => {
+  const { sets } = useSetsContext();
+
+  const renderDateSets = (sets: Set[]) => {
+    return sets.map((set, index) => {
+      return (
+        <Description>
+          <p>
+            {set.weight} x {set.reps} lb{"  "}
+          </p>
+          <Label>
+            Estimated 1RM: <span style={{ fontWeight: "400" }}>{set.rm}</span>
+          </Label>
+        </Description>
+      );
+    });
+  };
+  const renderDates = (dateSet: DateSet) => {
+    const { date, sets } = dateSet;
+    return (
+      <DateSetsContainer>
+        <SetDate>{new Date(date).toLocaleDateString()}</SetDate>
+        <SetContainer>{renderDateSets(sets)}</SetContainer>
+      </DateSetsContainer>
+    );
+  };
+
   return (
-    <div>
-      <ul>
-        {sets.map((set, index) => (
-          <li key={index}>
-            {set.date.toDateString()} - {set.reps} reps at {set.weight} kg
-          </li>
-        ))}
-      </ul>
-    </div>
+    <SetsContainer>{sets.map((dateSet) => renderDates(dateSet))}</SetsContainer>
   );
 };

@@ -23,3 +23,8 @@ export interface Set {
   weight: number;
   rm: number;
 }
+
+export interface DateSet {
+  date: Date;
+  sets: Set[];
+}
