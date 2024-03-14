@@ -27,10 +27,11 @@ const ExerciseList: FC<ExerciseListProps> = (props) => {
             query: { name: item.name, image: item.image },
           }}
           key={item.id}
+          data-testid={`exercise-link-${item.id}`}
         >
           <ExerciseImage
             src={item.image}
-            alt={`${item.name} image`}
+            alt={`${item.id}-image`}
             width={60}
             height={60}
           />
@@ -38,12 +39,7 @@ const ExerciseList: FC<ExerciseListProps> = (props) => {
             <ExerciseTitle>{item.name}</ExerciseTitle>
             <ExerciseMuscle>{item.muscle}</ExerciseMuscle>
           </ExerciseDataContainer>
-          <Image
-            src={Arrow}
-            alt={`${item.name} image`}
-            width={20}
-            height={40}
-          />
+          <Image src={Arrow} alt={"arrow-icon"} width={20} height={40} />
         </ExerciseContainer>
       );
     });
@@ -51,7 +47,9 @@ const ExerciseList: FC<ExerciseListProps> = (props) => {
 
   return (
     <PageContainer>
-      <PageTitle>Top Exercises</PageTitle>
+      <PageTitle>
+        {list.length > 0 ? "Top Exercises" : "No Exercises found"}
+      </PageTitle>
       <ExerciseListContainer>{renderList()}</ExerciseListContainer>
     </PageContainer>
   );

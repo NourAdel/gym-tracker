@@ -4,5 +4,9 @@ export const getExerciseList = async (): Promise<Exercise[]> => {
   const response = await fetch(
     "https://storage.googleapis.com/fitbod-web-internal/exercises.json"
   );
-  return response.json();
+  if (!response.ok) {
+    return [];
+  }
+  const data = await response.json();
+  return data;
 };

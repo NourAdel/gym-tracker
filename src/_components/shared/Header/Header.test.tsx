@@ -12,7 +12,7 @@ describe("Header component", () => {
 
   it("displays the correct logo", () => {
     const { getByAltText } = render(<Header />);
-    const logoElement = getByAltText("fitbod logo");
+    const logoElement = getByAltText("fitbod-logo");
     expect(logoElement).toBeInTheDocument();
   });
 

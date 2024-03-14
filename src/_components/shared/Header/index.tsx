@@ -10,7 +10,7 @@ const Header: React.FC = () => {
   return (
     <HeaderContainer data-testid="header">
       <Link href="/" test-id="app-logo">
-        <Image src={FitbodLogo} alt="fitbod logo" />
+        <Image src={FitbodLogo} alt="fitbod-logo" />
       </Link>
     </HeaderContainer>
   );

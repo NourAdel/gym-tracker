@@ -17,6 +17,10 @@ export interface ExercisePageProps {
   };
 }
 
+export interface ExerciseDetailsProps {
+  name: string;
+  image: string;
+}
 export interface Set {
   date: Date;
   reps: number;

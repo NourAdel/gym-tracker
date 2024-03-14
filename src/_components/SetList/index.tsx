@@ -13,11 +13,15 @@ export const SetList: React.FC = () => {
   const { sets } = useSetsContext();
 
   const renderDateSets = (sets: Set[]) => {
-    return sets.map((set, index) => {
+    return sets.map((set) => {
       return (
-        <Description>
+        <Description
+          key={`${set.weight} x ${set.reps} ${new Date(
+            set.date
+          ).toLocaleDateString()}`}
+        >
           <p>
-            {set.weight} x {set.reps} lb{"  "}
+            {set.reps} x {set.weight} lb{"  "}
           </p>
           <Label>
             Estimated 1RM: <span style={{ fontWeight: "400" }}>{set.rm}</span>
@@ -29,7 +33,7 @@ export const SetList: React.FC = () => {
   const renderDates = (dateSet: DateSet) => {
     const { date, sets } = dateSet;
     return (
-      <DateSetsContainer>
+      <DateSetsContainer key={new Date(date).toLocaleDateString()}>
         <SetDate>{new Date(date).toLocaleDateString()}</SetDate>
         <SetContainer>{renderDateSets(sets)}</SetContainer>
       </DateSetsContainer>
@@ -37,6 +41,8 @@ export const SetList: React.FC = () => {
   };
 
   return (
-    <SetsContainer>{sets.map((dateSet) => renderDates(dateSet))}</SetsContainer>
+    <SetsContainer data-testid="set-list">
+      {sets.map((dateSet) => renderDates(dateSet))}
+    </SetsContainer>
   );
 };
