@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const Header: React.FC = () => {
   return (
-    <HeaderContainer>
+    <HeaderContainer data-testid="header">
       <Link href="/" test-id="app-logo">
         <Image src={FitbodLogo} alt="fitbod logo" />
       </Link>

@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
 import React from "react";
 import { FooterComponent } from "../sharedComponents.styled";
 
 const Footer: React.FC = () => {
-  return <FooterComponent />;
+  return <FooterComponent data-testid="footer" />;
 };
 
 export default Footer;
