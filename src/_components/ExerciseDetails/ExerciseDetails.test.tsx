@@ -1,49 +1,31 @@
 import ExerciseDetails from ".";
 import React from "react";
 import { fireEvent, render } from "@testing-library/react";
-import { SetsContext, SetsContextProvider } from "@/_store/useSetsContext";
-import { ExerciseDetailsProps, Set } from "@/_types";
-
-const exercise: ExerciseDetailsProps = {
-  name: "Push ups",
-  image: 'image: "https://example.com/images/1.jpg"',
-};
-const onAddSet = jest.fn();
+import { SetsContext } from "@/_store/useSetsContext";
+import { EXERCISES, SETS } from "@/_constants/testsData";
 
 const WrappedExerciseDetails = () => {
   return (
     <SetsContext.Provider
       value={{
-        sets: [
-          {
-            date: new Date("2024-03-14T00:00:00.000Z"),
-            sets: [
-              {
-                date: new Date("2024-03-14T00:00:00.000Z"),
-                reps: 10,
-                weight: 100,
-                rm: 100 * (36 / (37 - 10)),
-              },
-            ],
-          },
-        ],
+        sets: SETS,
         slug: "",
         setSlug: () => {},
         addSet: () => {},
       }}
     >
-      <ExerciseDetails {...exercise} />
+      <ExerciseDetails {...EXERCISES[0]} />
     </SetsContext.Provider>
   );
 };
 describe("ExerciseDetails", () => {
   it("renders exercise name and image correctly", () => {
     const { getByText, getByAltText } = render(<WrappedExerciseDetails />);
-    expect(getByText("Push ups")).toBeInTheDocument();
-    expect(getByAltText("Push ups")).toBeInTheDocument();
-    expect(getByAltText("Push ups")).toHaveAttribute("src");
-    expect(getByAltText("Push ups")).toHaveAttribute("width", "150");
-    expect(getByAltText("Push ups")).toHaveAttribute("height", "150");
+    expect(getByText("Exercise 1")).toBeInTheDocument();
+    expect(getByAltText("Exercise 1")).toBeInTheDocument();
+    expect(getByAltText("Exercise 1")).toHaveAttribute("src");
+    expect(getByAltText("Exercise 1")).toHaveAttribute("width", "150");
+    expect(getByAltText("Exercise 1")).toHaveAttribute("height", "150");
   });
 
   it("renders set list correctly", () => {

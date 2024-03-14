@@ -1,24 +1,13 @@
 import { SetsContext } from "@/_store/useSetsContext";
 import { SetList } from ".";
 import { render } from "@testing-library/react";
+import { SETS } from "@/_constants/testsData";
 
 const WrappedExerciseDetails = () => {
   return (
     <SetsContext.Provider
       value={{
-        sets: [
-          {
-            date: new Date("2024-03-14T00:00:00.000Z"),
-            sets: [
-              {
-                date: new Date(),
-                reps: 10,
-                weight: 100,
-                rm: 505,
-              },
-            ],
-          },
-        ],
+        sets: SETS,
         slug: "",
         setSlug: () => {},
         addSet: () => {},
@@ -42,6 +31,4 @@ describe("SetList", () => {
     expect(getByText("Estimated 1RM:")).toBeInTheDocument();
     expect(getByText("505")).toBeInTheDocument();
   });
-
-  
 });

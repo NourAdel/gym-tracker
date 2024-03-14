@@ -42,7 +42,7 @@ const ExerciseDetails: React.FC<ExerciseDetailsProps> = ({ name, image }) => {
   };
 
   return (
-    <PageContainer>
+    <PageContainer data-testid={'exercise-page'}>
       <PageTitle>{name}</PageTitle>
       <ExerciseImage src={image} alt={name} width={150} height={150} />
       <SectionTitle>Add set:</SectionTitle>

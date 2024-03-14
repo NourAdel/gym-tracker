@@ -1,22 +1,8 @@
 import React from "react";
-import { getByAltText, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import ExerciseList from ".";
-import { Exercise } from "@/_types";
+import { EXERCISES } from "@/_constants/testsData";
 
-const exercises: Exercise[] = [
-  {
-    id: "exercise-1",
-    name: "Exercise 1",
-    muscle: "muscle1",
-    image: "https://example.com/images/1.jpg",
-  },
-  {
-    id: "exercise-2",
-    name: "Exercise 2",
-    muscle: "muscle2",
-    image: "https://example.com/images/2.jpg",
-  },
-];
 describe("ExerciseList", () => {
   it("renders empty exercise list component", () => {
     const { getByText } = render(<ExerciseList list={[]} />);
@@ -24,9 +10,7 @@ describe("ExerciseList", () => {
   });
 
   it("renders exercise list correctly", () => {
-    const { getByText, getAllByAltText, getByAltText } = render(
-      <ExerciseList list={exercises} />
-    );
+    const { getByText } = render(<ExerciseList list={EXERCISES} />);
 
     expect(getByText("Top Exercises")).toBeInTheDocument();
     expect(getByText("Exercise 1")).toBeInTheDocument();
@@ -46,7 +30,7 @@ describe("ExerciseList", () => {
 
   it("renders the right images with the right attributes", () => {
     const { getByAltText, getAllByAltText } = render(
-      <ExerciseList list={exercises} />
+      <ExerciseList list={EXERCISES} />
     );
 
     expect(getAllByAltText("arrow-icon")).toHaveLength(2);
@@ -59,7 +43,7 @@ describe("ExerciseList", () => {
   });
 
   it("passes the right params to the exercise page", () => {
-    const { getByTestId } = render(<ExerciseList list={exercises} />);
+    const { getByTestId } = render(<ExerciseList list={EXERCISES} />);
 
     expect(getByTestId("exercise-link-exercise-1")).toHaveAttribute(
       "href",

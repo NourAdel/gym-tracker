@@ -46,7 +46,7 @@ const ExerciseList: FC<ExerciseListProps> = (props) => {
   };
 
   return (
-    <PageContainer>
+    <PageContainer data-testid='exercise-list-page'>
       <PageTitle>
         {list.length > 0 ? "Top Exercises" : "No Exercises found"}
       </PageTitle>

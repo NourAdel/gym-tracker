@@ -1,23 +1,18 @@
+import { EXERCISES } from "@/_constants/testsData";
 import { getExerciseList } from "./exercises";
-
-const MOCK_LIST = [
-  { id: 1, name: "Bench Press" },
-  { id: 2, name: "Squat" },
-  { id: 3, name: "Deadlift" },
-];
 
 global.fetch = jest.fn(
   () =>
     Promise.resolve({
       ok: true,
-      json: () => Promise.resolve(MOCK_LIST),
+      json: () => Promise.resolve(EXERCISES),
     }) as Promise<Response>
 );
 
 describe("getExerciseList", () => {
   it("should fetch exercise list", async () => {
     const exerciseList = await getExerciseList();
-    expect(exerciseList).toEqual(MOCK_LIST);
+    expect(exerciseList).toEqual(EXERCISES);
   });
 
   it("should return an empty array if theres an error", async () => {
