@@ -21,7 +21,7 @@ const ExerciseDetails: React.FC<{
 }> = ({ name, image }) => {
   const [reps, setReps] = useState<number>(0);
   const [weight, setWeight] = useState<number>(0);
-  const { sets, addSet, clearSets } = useSetsContext();
+  const { sets, addSet } = useSetsContext();
   const today = new Date();
   return (
     <PageContainer>
@@ -33,11 +33,11 @@ const ExerciseDetails: React.FC<{
           <Label>Reps</Label>
 
           <Input
-            type="number"
+            type="text"
             value={reps === 0 ? "" : reps}
             placeholder="0"
             onChange={(e) => {
-              setReps(Number(e.target?.value));
+              setReps(Number(e.target?.value.replace(".", "")));
             }}
           />
         </InputLabelContainer>
@@ -62,17 +62,20 @@ const ExerciseDetails: React.FC<{
               weight,
               rm: parseFloat((weight * (36 / (37 - reps))).toFixed(1)),
             });
+            setReps(0);
+            setWeight(0);
           }}
         >
           +
         </AddSetButton>
-        <AddSetButton
+        {/* <AddSetButton
           onClick={() => {
             clearSets();
           }}
         >
           clear
         </AddSetButton>
+       */}
       </InputsContainer>
 
       {sets.length > 0 && (

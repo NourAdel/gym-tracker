@@ -21,12 +21,12 @@ export const SetContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 15px 48px;
+  gap: 24px 48px;
   transition: all 0.5s linear;
 
   @media (max-width: 750px) {
     grid-template-columns: 1fr;
-    gap: 15px 0;
+    gap: 24px 0;
   }
 `;
 
