@@ -4,7 +4,7 @@ import Header from "../_components/shared/Header";
 import Footer from "../_components/shared/Footer";
 import "./globals.css";
 import StyledComponentsRegistry from "../_utils/StyledComponentsRegistry";
-import { SetsContextProvider } from "@/_store/useSetsContext";
+import { SetsContextProvider } from "../_store/useSetsContext";
 
 const inter = Inter({ subsets: ["latin"] });
 

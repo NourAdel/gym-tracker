@@ -7,7 +7,7 @@ import {
   Description,
   DateSetsContainer,
 } from "./SetList.styled.";
-import { useSetsContext } from "@/_store/useSetsContext";
+import { useSetsContext } from "../../_store/useSetsContext";
 
 export const SetList: React.FC = () => {
   const { sets } = useSetsContext();

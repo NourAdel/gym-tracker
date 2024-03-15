@@ -7,7 +7,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "app-media.fitbod.me",
+        hostname: "*",
         port: "",
   
       },

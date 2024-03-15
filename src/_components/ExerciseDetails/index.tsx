@@ -13,7 +13,7 @@ import {
   AddSetButton,
 } from "./ExerciseDetails.styled";
 import { SetList } from "../SetList";
-import { useSetsContext } from "@/_store/useSetsContext";
+import { useSetsContext } from "../../_store/useSetsContext";
 import { ExerciseDetailsProps } from "@/_types";
 
 const ExerciseDetails: React.FC<ExerciseDetailsProps> = ({ name, image }) => {
