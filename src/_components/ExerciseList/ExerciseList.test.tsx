@@ -19,12 +19,12 @@ describe("ExerciseList", () => {
     expect(getByText("muscle2")).toBeInTheDocument();
     expect(getByText("Exercise 1").closest("a")).toHaveAttribute(
       "href",
-      "/exercises/exercise-1?name=Exercise+1&image=https%3A%2F%2Fexample.com%2Fimages%2F1.jpg"
+      "/exercises/exercise-1?name=Exercise+1&image=https%3A%2F%2Fvia.placeholder.com%2F60"
     );
 
     expect(getByText("Exercise 2").closest("a")).toHaveAttribute(
       "href",
-      "/exercises/exercise-2?name=Exercise+2&image=https%3A%2F%2Fexample.com%2Fimages%2F2.jpg"
+      "/exercises/exercise-2?name=Exercise+2&image=https%3A%2F%2Fvia.placeholder.com%2F60"
     );
   });
 
@@ -47,12 +47,12 @@ describe("ExerciseList", () => {
 
     expect(getByTestId("exercise-link-exercise-1")).toHaveAttribute(
       "href",
-      "/exercises/exercise-1?name=Exercise+1&image=https%3A%2F%2Fexample.com%2Fimages%2F1.jpg"
+      "/exercises/exercise-1?name=Exercise+1&image=https%3A%2F%2Fvia.placeholder.com%2F60"
     );
 
     expect(getByTestId("exercise-link-exercise-2")).toHaveAttribute(
       "href",
-      "/exercises/exercise-2?name=Exercise+2&image=https%3A%2F%2Fexample.com%2Fimages%2F2.jpg"
+      "/exercises/exercise-2?name=Exercise+2&image=https%3A%2F%2Fvia.placeholder.com%2F60"
     );
   });
 });

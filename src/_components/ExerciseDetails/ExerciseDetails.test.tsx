@@ -1,6 +1,6 @@
-import ExerciseDetails from ".";
 import React from "react";
 import { fireEvent, render } from "@testing-library/react";
+import ExerciseDetails from ".";
 import { SetsContext } from "@/_store/useSetsContext";
 import { EXERCISES, SETS } from "@/_constants/testsData";
 

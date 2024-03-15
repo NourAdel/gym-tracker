@@ -12,7 +12,7 @@ export default function ExercisePage({
 
   useEffect(() => {
     setSlug(params.slug);
-  }, [params.slug]);
+  }, [params.slug, setSlug]);
 
   return (
     <ExerciseDetails image={searchParams.image} name={searchParams.name} />

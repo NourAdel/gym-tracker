@@ -22,6 +22,7 @@ const ExerciseDetails: React.FC<ExerciseDetailsProps> = ({ name, image }) => {
   const { sets, addSet } = useSetsContext();
   const today = new Date();
 
+
   const onRepsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setReps(Number(e.target?.value.replace(/[^0-9]/, "")));
   };
@@ -42,7 +43,7 @@ const ExerciseDetails: React.FC<ExerciseDetailsProps> = ({ name, image }) => {
   };
 
   return (
-    <PageContainer data-testid={'exercise-page'}>
+    <PageContainer data-testid={"exercise-page"}>
       <PageTitle>{name}</PageTitle>
       <ExerciseImage src={image} alt={name} width={150} height={150} />
       <SectionTitle>Add set:</SectionTitle>
@@ -72,21 +73,9 @@ const ExerciseDetails: React.FC<ExerciseDetailsProps> = ({ name, image }) => {
             data-testid="weight-input"
           />
         </InputLabelContainer>
-        <AddSetButton
-          onClick={() => onAddSet()}
-          data-testid="add-set-button"
-          disabled={reps === 0 || weight === 0}
-        >
+        <AddSetButton onClick={() => onAddSet()} data-testid="add-set-button">
           +
         </AddSetButton>
-        {/* <AddSetButton
-          onClick={() => {
-            clearSets();
-          }}
-        >
-          clear
-        </AddSetButton>
-       */}
       </InputsContainer>
 
       {sets.length > 0 && (

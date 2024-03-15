@@ -13,7 +13,6 @@ interface SetsContextType {
   slug: string;
   setSlug: (slug: string) => void;
   addSet: (set: Set) => void;
-  // clearSets: () => void;
 }
 
 export const SetsContext = createContext<SetsContextType | undefined>(
@@ -37,14 +36,16 @@ export const SetsContextProvider: React.FC<{ children: ReactNode }> = ({
   const [slug, setSlug] = useState<string>("");
 
   useEffect(() => {
-    const storedSets = localStorage.getItem(`${slug}-DateSets`);
+    const storedSets = localStorage.getItem(slug);
     if (storedSets) {
       setSets(JSON.parse(storedSets));
+    } else {
+      setSets([]);
     }
   }, [slug]);
 
   useEffect(() => {
-    localStorage.setItem(`${slug}-DateSets`, JSON.stringify(sets));
+    localStorage.setItem(slug, JSON.stringify(sets));
   }, [sets]);
 
   const addSet = (set: Set) => {
@@ -60,17 +61,11 @@ export const SetsContextProvider: React.FC<{ children: ReactNode }> = ({
     }
   };
 
-  // const clearSets = () => {
-  //   localStorage.removeItem(`${slug}-DateSets`);
-  //   setSets([]);
-  // };
-
   const contextValue: SetsContextType = {
     sets,
     slug,
     setSlug,
     addSet,
-    // clearSets,
   };
 
   return (
