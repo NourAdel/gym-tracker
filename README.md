@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![Vercel Deployments](https://img.shields.io/github/deployments/NourAdel/gym-tracker/Production)
 
-## Getting Started
+# Fitbod Gym Tracker
 
-First, run the development server:
+## Development
+
+To start the app locally 
+
+```bash
+npm install 
+```
+
+then
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+
+#### Run test cases
+
+```bash
+npm run jest
+```
+
+#### Open storybook
+
+```bash
+npm run storybook dev -p 6006
+```
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<div style="display:flex; width:100%; justify-content: center ; gap: 8px; margin-bottom: 20px; ">
+<img src="./.media/next-js.svg" alt="next-logo" width="30" height="30"  margin-inline-end:10px"/>
+<img src="./.media/Typescript.svg.png" alt="typescript-logo" width="30" height="30" style="; margin-inline-end:10px"/>
+<img src="./.media/styled.png" alt="styled-components-logo" width="30" height="30" style="; margin-inline-end:10px"/>
+<img src="./.media/jest.jpg" alt="jest-logo" width="30" height="30" >
+</div>
 
-## Learn More
+- Next.js 13 with app router
+- Typescript
+- Styled components
+- Context API and hooks for state management
+- jest for uint testing
+- Deploy using Vercel
 
-To learn more about Next.js, take a look at the following resources:
+## TODO
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [ ] (Enhance the exercise details page experience by:
+    - Providing a better scrolling experience
+    - Creating an API to retrieve a single exercise data using its slug so that user can access the exercise page directly)
+- [ ] (Adding clear set & edit set functionalities )
+- [ ] (Adding rest time input to the set data)
+- [ ] (Adding a loading state and an error state UI )
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
